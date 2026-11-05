@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VINAYES – Thiết kế website & ứng dụng AI</title>
+<meta name="description" content="CÔNG TY TNHH VINAYES – thiết kế website bán hàng, chăm sóc website và ứng dụng AI tự động hóa cho doanh nghiệp.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F4F6F8;--surface:#fff;--fg:#14202B;--muted:#5A6672;--brand:#0F2C44;--accent:#F28C28;--line:#DCE2E8;
+--display:"Lexend",system-ui,sans-serif;--body:"Be Vietnam Pro",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);line-height:1.2;margin:0;text-wrap:balance}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;color:var(--brand);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:20px;font-size:15px} nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
+.btn{display:inline-block;background:var(--accent);color:#14202B;font:inherit;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:6px;border:0;cursor:pointer}
+.btn.line{background:transparent;border:1.5px solid currentColor}
+section{padding:60px 0}
+.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 10px}
+.hero{background:var(--brand);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,50px)}
+.hero p{opacity:.85;max-width:52ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.stats{display:grid;gap:14px}
+.stat{border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:16px 20px}
+.stat b{font-family:var(--display);font-size:32px;color:var(--accent);display:block;line-height:1.1}
+.stat span{font-size:14px;opacity:.85}
+.head{margin-bottom:28px} .head h2{font-size:clamp(26px,3.5vw,36px)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.card h3{font-size:19px;margin-bottom:8px} .card p{margin:0;color:var(--muted);font-size:15px}
+.card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{border-top:3px solid var(--accent);padding-top:14px}
+.step::before{counter-increment:s;content:"Bước " counter(s);font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.step h3{font-size:18px;margin:6px 0} .step p{margin:0;color:var(--muted);font-size:15px}
+.contact{background:var(--surface);border-block:1px solid var(--line)}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-size:14px;font-weight:500}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#result{background:var(--bg);border:1px dashed var(--accent);border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap}
+.phone{font-family:var(--display);font-size:28px;color:var(--brand);font-weight:700}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+.float{position:fixed;right:16px;bottom:16px;display:grid;gap:10px;z-index:6}
+.float a{text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.2);text-align:center;background:var(--accent);color:#14202B}
+.float a.z{background:#0068FF;color:#fff}
+@media (max-width:860px){.hero .wrap,.contact .wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}nav{display:none}}
+@media (max-width:560px){.grid,.steps,.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#">VINA<span>YES</span></a>
+  <nav><a href="#dich-vu">Dịch vụ</a><a href="#quy-trinh">Quy trình</a><a href="#lien-he">Liên hệ</a></nav>
+  <a class="btn" href="#lien-he">Nhận tư vấn</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">CÔNG TY TNHH VINAYES</p>
+    <h1>Website bán hàng cho doanh nghiệp, làm nhanh nhờ AI</h1>
+    <p>Thiết kế website WordPress chuẩn bán hàng, chăm sóc website trọn gói và ứng dụng AI để tự động hóa công việc: viết bài, đăng sản phẩm, trả lời khách.</p>
+    <div class="cta"><a class="btn" href="#lien-he">Xem demo cho doanh nghiệp của bạn</a><a class="btn line" href="tel:0935247168">Gọi 0935.247.168</a></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>200+</b><span>website đang được chăm sóc</span></div>
+    <div class="stat"><b>80–90%</b><span>khâu dựng web đã tự động bằng AI</span></div>
+    <div class="stat"><b>1 người</b><span>làm việc trực tiếp với bạn, không qua trung gian</span></div>
+  </div>
+</div></section>
+
+<section id="dich-vu"><div class="wrap">
+  <div class="head"><p class="eyebrow">Dịch vụ</p><h2>Ba việc VINAYES làm cho doanh nghiệp</h2></div>
+  <div class="grid">
+    <div class="card"><h3>Thiết kế website</h3><p>WordPress + Flatsome, giao diện theo ngành, hiển thị tốt trên điện thoại.</p>
+      <ul><li>Website bán hàng WooCommerce</li><li>Landing page giới thiệu</li><li>Nút Zalo, gọi điện, form báo giá</li></ul></div>
+    <div class="card"><h3>Chăm sóc website</h3><p>Cập nhật sản phẩm, viết bài tin tức, sửa lỗi, sao lưu định kỳ.</p>
+      <ul><li>Đăng sản phẩm hàng loạt</li><li>Bài viết chuẩn SEO</li><li>Xử lý sự cố nhanh</li></ul></div>
+    <div class="card"><h3>Ứng dụng AI cho doanh nghiệp</h3><p>Dựng quy trình tự động bằng n8n và AI, đào tạo nhân viên dùng AI hằng ngày.</p>
+      <ul><li>Ý tưởng thành bài viết tự động</li><li>Tự đăng bài lên website</li><li>Đào tạo AI cho đội marketing, bán hàng</li></ul></div>
+  </div>
+</div></section>
+
+<section id="quy-trinh" style="padding-top:0"><div class="wrap">
+  <div class="head"><p class="eyebrow">Quy trình</p><h2>Từ lúc liên hệ đến khi website chạy</h2></div>
+  <div class="steps">
+    <div class="step"><h3>Gửi thông tin</h3><p>Tên doanh nghiệp, sản phẩm, fanpage hoặc website mẫu bạn thích.</p></div>
+    <div class="step"><h3>Xem bản demo</h3><p>Nhận link trang demo dựng sẵn bằng thông tin của chính bạn.</p></div>
+    <div class="step"><h3>Chỉnh sửa</h3><p>Góp ý màu sắc, nội dung, sản phẩm. Sửa đến khi ưng ý.</p></div>
+    <div class="step"><h3>Bàn giao</h3><p>Gắn tên miền, hướng dẫn sử dụng, chăm sóc định kỳ.</p></div>
+  </div>
+</div></section>
+
+<section class="contact" id="lien-he"><div class="wrap">
+  <div>
+    <p class="eyebrow">Liên hệ</p>
+    <h2 style="font-size:clamp(26px,3.5vw,36px)">Gửi thông tin, nhận demo website</h2>
+    <p style="color:var(--muted)">Điền form để tạo sẵn tin nhắn, rồi gửi qua Zalo. Hoặc gọi trực tiếp:</p>
+    <p class="phone">0935.247.168</p>
+  </div>
+  <form id="f">
+    <div class="two">
+      <label for="f-name">Tên doanh nghiệp<input id="f-name" required placeholder="Nội thất ABC"></label>
+      <label for="f-phone">Số điện thoại / Zalo<input id="f-phone" required inputmode="tel" placeholder="09..."></label>
+    </div>
+    <label for="f-need">Bạn cần<select id="f-need"><option>Thiết kế website mới</option><option>Chăm sóc website đang có</option><option>Ứng dụng AI / tự động hóa</option></select></label>
+    <label for="f-link">Fanpage hoặc website hiện tại<input id="f-link" placeholder="facebook.com/..."></label>
+    <label for="f-note">Ghi chú<textarea id="f-note" rows="3"></textarea></label>
+    <button class="btn" type="submit">Tạo tin nhắn gửi Zalo</button>
+    <div id="result" hidden></div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">© CÔNG TY TNHH VINAYES · Hotline/Zalo: 0935.247.168</div></footer>
+
+<div class="float"><a class="z" href="https://zalo.me/0935247168" target="_blank" rel="noopener">Zalo</a><a href="tel:0935247168">Gọi ngay</a></div>
+
+<script>
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value||"—"};
+  var msg="Chào VINAYES, tôi là "+v("f-name")+" ("+v("f-phone")+").\nCần: "+v("f-need")+"\nFanpage/website: "+v("f-link")+"\nGhi chú: "+v("f-note");
+  var r=document.getElementById("result"); r.hidden=false;
+  r.textContent=msg+"\n\n→ Đã sao chép. Mở Zalo 0935.247.168 và dán tin này.";
+  if(navigator.clipboard){navigator.clipboard.writeText(msg).catch(function(){});}
+});
+</script>
+</body>
+</html>
