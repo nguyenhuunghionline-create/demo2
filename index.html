@@ -3,136 +3,260 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VINAYES – Thiết kế website & ứng dụng AI</title>
-<meta name="description" content="CÔNG TY TNHH VINAYES – thiết kế website bán hàng, chăm sóc website và ứng dụng AI tự động hóa cho doanh nghiệp.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<title>Kim Mã – Bột làm bánh & nguyên liệu Đà Nẵng</title>
+<meta name="description" content="Công ty TNHH Kim Mã – đại lý bột mì làm bánh, phụ gia, nguyên liệu thực phẩm tại Đà Nẵng. Giá sỉ cho lò bánh và đại lý.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
 <style>
-:root{--bg:#F4F6F8;--surface:#fff;--fg:#14202B;--muted:#5A6672;--brand:#0F2C44;--accent:#F28C28;--line:#DCE2E8;
---display:"Lexend",system-ui,sans-serif;--body:"Be Vietnam Pro",system-ui,sans-serif}
+/* Bố cục: dải liên hệ, header, hero chữ lớn + bảng "chọn bột theo số", thanh lọc danh mục, lưới sản phẩm, giỏ báo giá nổi, form, chân trang */
+:root{
+  --paper:#F6F6F2; --card:#FFFFFF; --ink:#16203A; --muted:#5D6478;
+  --sack:#1E3A8A; --sack-2:#2C4FA8; --wheat:#E3B23C; --sale:#B4372B; --line:#E1E2DA;
+  --display:"Fraunces",Georgia,serif; --body:"Be Vietnam Pro",system-ui,sans-serif;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
-h1,h2,h3{font-family:var(--display);line-height:1.2;margin:0;text-wrap:balance}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
 a{color:inherit}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:12px;flex-wrap:wrap}
-.logo{font-family:var(--display);font-weight:700;font-size:22px;color:var(--brand);text-decoration:none;letter-spacing:.02em}
-.logo span{color:var(--accent)}
-nav{display:flex;gap:20px;font-size:15px} nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
-.btn{display:inline-block;background:var(--accent);color:#14202B;font:inherit;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:6px;border:0;cursor:pointer}
-.btn.line{background:transparent;border:1.5px solid currentColor}
-section{padding:60px 0}
-.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 10px}
-.hero{background:var(--brand);color:#fff}
-.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(30px,5vw,50px)}
-.hero p{opacity:.85;max-width:52ch}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.stats{display:grid;gap:14px}
-.stat{border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:16px 20px}
-.stat b{font-family:var(--display);font-size:32px;color:var(--accent);display:block;line-height:1.1}
-.stat span{font-size:14px;opacity:.85}
-.head{margin-bottom:28px} .head h2{font-size:clamp(26px,3.5vw,36px)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
-.card h3{font-size:19px;margin-bottom:8px} .card p{margin:0;color:var(--muted);font-size:15px}
-.card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
-.step{border-top:3px solid var(--accent);padding-top:14px}
-.step::before{counter-increment:s;content:"Bước " counter(s);font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
-.step h3{font-size:18px;margin:6px 0} .step p{margin:0;color:var(--muted);font-size:15px}
-.contact{background:var(--surface);border-block:1px solid var(--line)}
-.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
-form{display:grid;gap:14px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.demo{background:var(--wheat);color:var(--ink);text-align:center;font-size:13px;padding:6px 16px}
+.top{background:var(--ink);color:#DCE1EE;font-size:13.5px}
+.top .wrap{display:flex;flex-wrap:wrap;gap:4px 22px;justify-content:space-between;padding-block:8px}
+.top b{color:var(--wheat)}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mark{width:42px;height:42px;border-radius:50%;background:var(--sack);color:var(--wheat);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px}
+.logo strong{font-family:var(--display);font-size:20px;display:block;line-height:1}
+.logo small{font-size:11px;letter-spacing:.14em;color:var(--muted)}
+nav{display:flex;gap:20px;margin-left:auto;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--sack)}
+.cartbtn{background:var(--sack);color:#fff;border:0;border-radius:999px;padding:10px 16px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.cartbtn span{background:var(--wheat);color:var(--ink);border-radius:999px;padding:0 8px;margin-left:6px}
+.btn{display:inline-block;background:var(--wheat);color:var(--ink);font:inherit;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:8px;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--wheat);outline-offset:2px}
+
+/* HERO */
+.hero{background:var(--sack);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 9px);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;padding-block:64px;position:relative;z-index:1}
+.kicker{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--wheat);font-weight:700;margin:0 0 14px}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--wheat)}
+.hero p{color:#D7DEF0;max-width:54ch;margin:18px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.guide{background:var(--card);color:var(--ink);border-radius:14px;padding:22px;align-self:center}
+.guide h3{font-size:20px;margin-bottom:4px}
+.guide>p{color:var(--muted);font-size:14px;margin:0 0 14px}
+.g-row{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:12px 0;border-top:1px dashed var(--line)}
+.g-num{font-family:var(--display);font-weight:800;font-size:28px;color:var(--sack);text-align:center;line-height:1}
+.g-num small{display:block;font-family:var(--body);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.g-row b{display:block;font-size:15px} .g-row span{font-size:13.5px;color:var(--muted)}
+.bar{height:6px;border-radius:3px;background:var(--line);margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--wheat)}
+
+/* VALUES */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:-28px;position:relative;z-index:2}
+.values div{padding:18px 20px;border-right:1px solid var(--line)} .values div:last-child{border-right:0}
+.values b{display:block;font-size:15px} .values span{font-size:13.5px;color:var(--muted)}
+
+section{padding:64px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.head h2{font-size:clamp(28px,3.6vw,40px)}
+.head p{margin:6px 0 0;color:var(--muted)}
+
+/* FILTER + PRODUCTS */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
+.chip small{color:var(--muted);margin-left:4px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff} .chip[aria-pressed="true"] small{color:var(--wheat)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.sackimg{aspect-ratio:4/3;max-width:100%;background:linear-gradient(160deg,#EEF0F6,#DFE3EE);display:grid;place-items:center;position:relative}
+.sackimg svg{width:46%;height:auto}
+.off{position:absolute;top:10px;left:10px;background:var(--sale);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
+.pack{position:absolute;top:10px;right:10px;background:var(--card);font-size:12px;border-radius:6px;padding:2px 8px;color:var(--muted)}
+.p .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.p h3{font-family:var(--body);font-size:15px;font-weight:700;line-height:1.35}
+.price{margin-top:auto;font-variant-numeric:tabular-nums}
+.price b{color:var(--sale);font-size:18px} .price s{color:var(--muted);font-size:13px;margin-left:6px}
+.add{border:1.5px solid var(--sack);background:transparent;color:var(--sack);border-radius:8px;padding:8px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.add.on{background:var(--sack);color:#fff}
+.empty{grid-column:1/-1;background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
+
+/* QUOTE */
+.quote{background:var(--ink);color:#fff}
+.quote .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px}
+.quote p{color:#C9CFE0}
+.quote .info{display:grid;gap:10px;margin-top:20px}
+.quote .info div{border-left:3px solid var(--wheat);padding-left:12px}
+.quote .info b{display:block;color:var(--wheat);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+form{background:var(--card);color:var(--ink);border-radius:14px;padding:24px;display:grid;gap:14px;min-width:0}
 label{display:grid;gap:6px;font-size:14px;font-weight:500}
-input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:100%}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);width:100%}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-#result{background:var(--bg);border:1px dashed var(--accent);border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap}
-.phone{font-family:var(--display);font-size:28px;color:var(--brand);font-weight:700}
-footer{padding:28px 0;font-size:14px;color:var(--muted)}
-.float{position:fixed;right:16px;bottom:16px;display:grid;gap:10px;z-index:6}
-.float a{text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.2);text-align:center;background:var(--accent);color:#14202B}
-.float a.z{background:#0068FF;color:#fff}
-@media (max-width:860px){.hero .wrap,.contact .wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}nav{display:none}}
-@media (max-width:560px){.grid,.steps,.two{grid-template-columns:1fr}}
+#picked{font-size:14px;background:var(--paper);border-radius:8px;padding:10px 12px;color:var(--muted)}
+#result{background:var(--paper);border:1px dashed var(--sack);border-radius:8px;padding:14px;font-size:14px;white-space:pre-wrap}
+
+/* POSTS + PARTNERS */
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.posts article{border-top:3px solid var(--sack);padding-top:14px}
+.posts .tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sale);font-weight:700}
+.posts h3{font-family:var(--body);font-size:16px;font-weight:700;margin:6px 0}
+.posts p{color:var(--muted);font-size:14.5px;margin:0}
+.partners{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.partners div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 16px;text-align:center}
+.partners b{font-family:var(--display);font-size:20px;letter-spacing:.04em;color:var(--sack)}
+.partners span{display:block;font-size:13px;color:var(--muted)}
+
+footer{background:var(--card);border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:28px;padding-block:40px}
+footer h3{font-family:var(--body);font-size:15px;color:var(--ink);margin-bottom:8px}
+.float{position:fixed;right:16px;bottom:16px;display:grid;gap:10px;z-index:30}
+.float a{text-decoration:none;font-weight:700;font-size:14px;padding:11px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.22);text-align:center;background:var(--sale);color:#fff}
+.float a.z{background:#0068FF}
+
+@media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}.posts,.partners{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.hero .wrap,.quote .wrap{grid-template-columns:1fr}.values{grid-template-columns:1fr 1fr}.values div:nth-child(2){border-right:0}.values div{border-bottom:1px solid var(--line)}nav{display:none}header .wrap{flex-wrap:nowrap}.cartbtn{margin-left:auto;padding:8px 12px;white-space:nowrap}footer .wrap{grid-template-columns:1fr}}
+@media (max-width:620px){.grid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+@media (max-width:420px){.grid,.posts,.values{grid-template-columns:1fr}.values div{border-right:0}}
+@media (prefers-reduced-motion:no-preference){.p{transition:transform .2s,box-shadow .2s}.p:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(22,32,58,.1)}}
 </style>
 </head>
 <body>
+<div class="demo">Bản demo giao diện mới – đề xuất cho Công ty TNHH Kim Mã</div>
+<div class="top"><div class="wrap">
+  <span>Kho hàng: 47 Nam Trân, P. Hòa Khánh, TP Đà Nẵng</span>
+  <span>Mở cửa 07:00 – 18:30 (T2 – CN)</span>
+  <span>Hotline/Zalo báo giá: <b>0935.242.489</b></span>
+</div></div>
+
 <header><div class="wrap">
-  <a class="logo" href="#">VINA<span>YES</span></a>
-  <nav><a href="#dich-vu">Dịch vụ</a><a href="#quy-trinh">Quy trình</a><a href="#lien-he">Liên hệ</a></nav>
-  <a class="btn" href="#lien-he">Nhận tư vấn</a>
+  <a class="logo" href="#"><span class="mark">KM</span><span><strong>Kim Mã</strong><small>BỘT LÀM BÁNH • KIMMA.VN</small></span></a>
+  <nav><a href="#san-pham">Sản phẩm</a><a href="#bao-gia">Báo giá sỉ</a><a href="#kien-thuc">Kiến thức</a><a href="#doi-tac">Đối tác</a></nav>
+  <button class="cartbtn" type="button" onclick="location.hash='bao-gia'">Giỏ báo giá<span id="count">0</span></button>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<section class="hero" style="padding:0"><div class="wrap">
   <div>
-    <p class="eyebrow">CÔNG TY TNHH VINAYES</p>
-    <h1>Website bán hàng cho doanh nghiệp, làm nhanh nhờ AI</h1>
-    <p>Thiết kế website WordPress chuẩn bán hàng, chăm sóc website trọn gói và ứng dụng AI để tự động hóa công việc: viết bài, đăng sản phẩm, trả lời khách.</p>
-    <div class="cta"><a class="btn" href="#lien-he">Xem demo cho doanh nghiệp của bạn</a><a class="btn line" href="tel:0935247168">Gọi 0935.247.168</a></div>
+    <p class="kicker">Đại lý bột mì & nguyên liệu – Đà Nẵng</p>
+    <h1>Bột chuẩn cho mẻ bánh <em>đều tay</em> mỗi ngày</h1>
+    <p>Bột mì bao 25kg, men, phụ gia, dầu ăn, gạo và thịt đông lạnh cho lò bánh, đại lý, nhà hàng, khách sạn. Hàng mới từ nhà máy, kho khô thoáng, giao nhanh trong Đà Nẵng và các tỉnh miền Trung.</p>
+    <div class="cta"><a class="btn" href="#san-pham">Xem bảng giá sỉ</a><a class="btn ghost" href="tel:0935242489">Gọi 0935.242.489</a></div>
   </div>
-  <div class="stats">
-    <div class="stat"><b>200+</b><span>website đang được chăm sóc</span></div>
-    <div class="stat"><b>80–90%</b><span>khâu dựng web đã tự động bằng AI</span></div>
-    <div class="stat"><b>1 người</b><span>làm việc trực tiếp với bạn, không qua trung gian</span></div>
-  </div>
+  <aside class="guide" aria-label="Chọn bột theo loại bánh">
+    <h3>Chọn bột theo số</h3>
+    <p>Số trên bao gần bằng hàm lượng đạm (%). Đạm càng cao, ruột bánh càng dai.</p>
+    <div class="g-row"><div class="g-num">13<small>ĐẠM CAO</small></div><div><b>Bánh mì, bánh mì đặc ruột</b><span>Gluten khỏe, nở tốt, vỏ giòn</span><div class="bar"><i style="width:92%"></i></div></div></div>
+    <div class="g-row"><div class="g-num">11<small>ĐA DỤNG</small></div><div><b>Bánh bao, mì sợi, bánh ngọt</b><span>Cân bằng giữa dai và mềm</span><div class="bar"><i style="width:72%"></i></div></div></div>
+    <div class="g-row"><div class="g-num">8<small>ĐẠM THẤP</small></div><div><b>Bông lan, bánh bông, cookie</b><span>Ruột mịn, xốp, không dai</span><div class="bar"><i style="width:48%"></i></div></div></div>
+  </aside>
 </div></section>
 
-<section id="dich-vu"><div class="wrap">
-  <div class="head"><p class="eyebrow">Dịch vụ</p><h2>Ba việc VINAYES làm cho doanh nghiệp</h2></div>
-  <div class="grid">
-    <div class="card"><h3>Thiết kế website</h3><p>WordPress + Flatsome, giao diện theo ngành, hiển thị tốt trên điện thoại.</p>
-      <ul><li>Website bán hàng WooCommerce</li><li>Landing page giới thiệu</li><li>Nút Zalo, gọi điện, form báo giá</li></ul></div>
-    <div class="card"><h3>Chăm sóc website</h3><p>Cập nhật sản phẩm, viết bài tin tức, sửa lỗi, sao lưu định kỳ.</p>
-      <ul><li>Đăng sản phẩm hàng loạt</li><li>Bài viết chuẩn SEO</li><li>Xử lý sự cố nhanh</li></ul></div>
-    <div class="card"><h3>Ứng dụng AI cho doanh nghiệp</h3><p>Dựng quy trình tự động bằng n8n và AI, đào tạo nhân viên dùng AI hằng ngày.</p>
-      <ul><li>Ý tưởng thành bài viết tự động</li><li>Tự đăng bài lên website</li><li>Đào tạo AI cho đội marketing, bán hàng</li></ul></div>
-  </div>
+<div class="wrap"><div class="values">
+  <div><b>Giao hàng nhanh</b><span>Tận nơi tại Đà Nẵng</span></div>
+  <div><b>100% chính hãng</b><span>Hàng mới từ nhà máy</span></div>
+  <div><b>Giá sỉ cạnh tranh</b><span>Chiết khấu lò bánh & đại lý</span></div>
+  <div><b>Tư vấn 24/7</b><span>Hỗ trợ kỹ thuật làm bánh</span></div>
+</div></div>
+
+<section id="san-pham"><div class="wrap">
+  <div class="head"><div><h2>Bảng giá sỉ</h2><p>Bấm danh mục để lọc, thêm sản phẩm vào giỏ để nhận báo giá theo số lượng.</p></div></div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
 </div></section>
 
-<section id="quy-trinh" style="padding-top:0"><div class="wrap">
-  <div class="head"><p class="eyebrow">Quy trình</p><h2>Từ lúc liên hệ đến khi website chạy</h2></div>
-  <div class="steps">
-    <div class="step"><h3>Gửi thông tin</h3><p>Tên doanh nghiệp, sản phẩm, fanpage hoặc website mẫu bạn thích.</p></div>
-    <div class="step"><h3>Xem bản demo</h3><p>Nhận link trang demo dựng sẵn bằng thông tin của chính bạn.</p></div>
-    <div class="step"><h3>Chỉnh sửa</h3><p>Góp ý màu sắc, nội dung, sản phẩm. Sửa đến khi ưng ý.</p></div>
-    <div class="step"><h3>Bàn giao</h3><p>Gắn tên miền, hướng dẫn sử dụng, chăm sóc định kỳ.</p></div>
-  </div>
-</div></section>
-
-<section class="contact" id="lien-he"><div class="wrap">
+<section class="quote" id="bao-gia"><div class="wrap">
   <div>
-    <p class="eyebrow">Liên hệ</p>
-    <h2 style="font-size:clamp(26px,3.5vw,36px)">Gửi thông tin, nhận demo website</h2>
-    <p style="color:var(--muted)">Điền form để tạo sẵn tin nhắn, rồi gửi qua Zalo. Hoặc gọi trực tiếp:</p>
-    <p class="phone">0935.247.168</p>
+    <p class="kicker">Dành cho lò bánh, đại lý & khách sỉ</p>
+    <h2 style="font-size:clamp(28px,3.6vw,40px)">Nhận báo giá sỉ trong 5 phút</h2>
+    <p>Cần bột mì bao 25kg, men khô, phụ gia, dầu ăn hay gạo số lượng lớn? Để lại thông tin, bộ phận kinh doanh Kim Mã sẽ gọi lại với mức chiết khấu tốt nhất.</p>
+    <div class="info">
+      <div><b>Địa chỉ kho</b>47 Nam Trân, P. Hòa Khánh, TP Đà Nẵng</div>
+      <div><b>Hotline / Zalo</b>0935.242.489</div>
+      <div><b>Website</b>kimma.vn</div>
+    </div>
   </div>
   <form id="f">
     <div class="two">
-      <label for="f-name">Tên doanh nghiệp<input id="f-name" required placeholder="Nội thất ABC"></label>
-      <label for="f-phone">Số điện thoại / Zalo<input id="f-phone" required inputmode="tel" placeholder="09..."></label>
+      <label for="f-name">Họ tên / Tên lò bánh *<input id="f-name" required placeholder="Lò bánh mì Hòa Khánh"></label>
+      <label for="f-phone">Số điện thoại / Zalo *<input id="f-phone" required inputmode="tel" placeholder="09..."></label>
     </div>
-    <label for="f-need">Bạn cần<select id="f-need"><option>Thiết kế website mới</option><option>Chăm sóc website đang có</option><option>Ứng dụng AI / tự động hóa</option></select></label>
-    <label for="f-link">Fanpage hoặc website hiện tại<input id="f-link" placeholder="facebook.com/..."></label>
-    <label for="f-note">Ghi chú<textarea id="f-note" rows="3"></textarea></label>
-    <button class="btn" type="submit">Tạo tin nhắn gửi Zalo</button>
+    <label for="f-qty">Số lượng & khu vực giao<input id="f-qty" placeholder="10 bao/tuần, giao Liên Chiểu"></label>
+    <div><div style="font-size:14px;font-weight:500;margin-bottom:6px">Sản phẩm trong giỏ</div><div id="picked">Chưa chọn sản phẩm nào – bấm “+ Báo giá” ở bảng giá.</div></div>
+    <label for="f-note">Ghi chú<textarea id="f-note" rows="3" placeholder="Loại bánh bạn làm, yêu cầu giao hàng..."></textarea></label>
+    <button class="btn" type="submit">Tạo tin nhắn báo giá</button>
     <div id="result" hidden></div>
   </form>
 </div></section>
 
-<footer><div class="wrap">© CÔNG TY TNHH VINAYES · Hotline/Zalo: 0935.247.168</div></footer>
+<section id="kien-thuc"><div class="wrap">
+  <div class="head"><div><h2>Kiến thức cho lò bánh</h2></div></div>
+  <div class="posts">
+    <article><span class="tag">Chọn bột</span><h3>Phân biệt bột mì số 8, số 11 và số 13</h3><p>Hàm lượng đạm quyết định độ dai của ruột bánh. Chọn đúng số giúp mẻ bánh ổn định.</p></article>
+    <article><span class="tag">Kỹ thuật</span><h3>Bí quyết bánh mì vỏ giòn, ruột xốp</h3><p>Nhiệt độ bột nhào, thời gian ủ và độ ẩm lò là ba điểm cần canh kỹ.</p></article>
+    <article><span class="tag">Bảo quản</span><h3>Bảo quản bột bao 25kg và men khô mùa mưa miền Trung</h3><p>Xếp pallet cách tường, giữ độ ẩm kho để bột luôn tơi và men giữ hoạt tính.</p></article>
+    <article><span class="tag">Về Kim Mã</span><h3>Kho hàng 47 Nam Trân và câu chuyện nguồn bột ổn định</h3><p>Cách Kim Mã giữ nguồn hàng đều cho lò bánh suốt mùa cao điểm.</p></article>
+  </div>
+</div></section>
 
-<div class="float"><a class="z" href="https://zalo.me/0935247168" target="_blank" rel="noopener">Zalo</a><a href="tel:0935247168">Gọi ngay</a></div>
+<section id="doi-tac" style="padding-top:0"><div class="wrap">
+  <div class="head"><div><h2>Đối tác cung ứng</h2></div></div>
+  <div class="partners">
+    <div><b>VIMAFLOUR</b><span>Bột mì</span></div><div><b>INTERFLOUR</b><span>Bột mì</span></div>
+    <div><b>AB MAURI</b><span>Men & phụ gia</span></div><div><b>LESAFFRE</b><span>Men làm bánh</span></div>
+    <div><b>CALOFIC</b><span>Dầu ăn</span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><h3>CÔNG TY TNHH KIM MÃ</h3>Đại lý bột làm bánh & nguyên liệu Đà Nẵng<br>47 Nam Trân, P. Hòa Khánh, TP Đà Nẵng<br>Hotline/Zalo: 0935.242.489 · kimma.vn</div>
+  <div><h3>Danh mục</h3>Bột mì làm bánh<br>Phụ gia bánh mì<br>Gạo, dầu ăn<br>Thịt đông lạnh nhập khẩu</div>
+  <div><h3>Hỗ trợ</h3>Chỉ đường kho hàng<br>Đăng ký đại lý<br>Tư vấn kỹ thuật làm bánh</div>
+</div></footer>
+
+<div class="float"><a class="z" href="https://zalo.me/0935242489" target="_blank" rel="noopener">Zalo</a><a href="tel:0935242489">Gọi ngay</a></div>
 
 <script>
-document.getElementById("f").addEventListener("submit",function(e){
-  e.preventDefault();
+var CATS=[["bot","Bột mì làm bánh",12],["phugia","Phụ gia bánh mì",6],["gao","Gạo ngon các loại",4],["kho","Bún, mì, miến, phở khô",4],["dau","Dầu ăn các loại",4],["thit","Thịt đông lạnh nhập khẩu",4]];
+var P=[
+["bot","Bột mì số 13 Cái Cân 25kg – chuyên bánh mì","Bao 25kg",540000,465000],
+["bot","Bột mì số 11 Ba Bông Hồng Xanh 25kg","Bao 25kg",530000,455000],
+["bot","Bột mì số 8 Con Bướm 25kg – bông lan, bánh ngọt","Bao 25kg",560000,485000],
+["bot","Bột mì Kim Ngưu 25kg – bánh mì đặc ruột & mì sợi","Bao 25kg",520000,450000],
+["bot","Bột mì Cây Tre 25kg – đa dụng cao cấp","Bao 25kg",510000,440000],
+["bot","Bột mì Hạ Long Xanh 25kg","Bao 25kg",505000,435000],
+["bot","Bột mì Hoa Ngọc Lan số 13 – bánh mì cao cấp","Bao 25kg",545000,470000],
+["bot","Bột mì Hoa Ngọc Lan số 8 – bông lan & bánh bao","Bao 25kg",550000,475000],
+["bot","Bột mì đa dụng Hoa Ngọc Lan gói 1kg","Gói 1kg",32000,26000],
+["thit","Ba chỉ bò nhập khẩu & thịt heo xay làm nhân bánh bao","Khay 1kg",210000,182000],
+["thit","Phô mai Mozzarella bào sợi – pizza, bánh mì phô mai","Gói 1kg",240000,205000],
+["thit","Đùi gà góc tư & cánh gà nhập khẩu","Thùng 15kg",890000,780000]
+];
+var cur="bot", cart=[];
+function vnd(n){return n.toLocaleString("vi-VN")+"₫"}
+var sack='<svg viewBox="0 0 100 120" aria-hidden="true"><path d="M22 18 Q50 6 78 18 L86 108 Q50 118 14 108 Z" fill="#fff" stroke="#1E3A8A" stroke-width="3"/><path d="M22 18 Q50 28 78 18" fill="none" stroke="#1E3A8A" stroke-width="3"/><rect x="28" y="48" width="44" height="34" rx="4" fill="#1E3A8A"/><path d="M50 54 v22 M44 60 l6 -5 6 5 M44 68 l6 -5 6 5" stroke="#E3B23C" stroke-width="2.5" fill="none"/></svg>';
+function renderChips(){document.getElementById("chips").innerHTML=CATS.map(function(c){return '<button class="chip" type="button" data-c="'+c[0]+'" aria-pressed="'+(c[0]===cur)+'">'+c[1]+'<small>'+c[2]+'</small></button>'}).join("")}
+function renderGrid(){
+  var list=P.map(function(p,i){return [p,i]}).filter(function(x){return x[0][0]===cur});
+  var g=document.getElementById("grid");
+  if(!list.length){var c=CATS.find(function(c){return c[0]===cur});g.innerHTML='<div class="empty">'+c[1]+' – '+c[2]+' sản phẩm. Gọi hoặc nhắn Zalo 0935.242.489 để nhận bảng giá mới nhất.</div>';return}
+  g.innerHTML=list.map(function(x){var p=x[0],i=x[1],on=cart.indexOf(i)>-1,off=Math.round((1-p[4]/p[3])*100);
+    return '<div class="p"><div class="sackimg">'+sack+'<span class="off">-'+off+'%</span><span class="pack">'+p[2]+'</span></div><div class="body"><h3>'+p[1]+'</h3><div class="price"><b>'+vnd(p[4])+'</b><s>'+vnd(p[3])+'</s></div><button class="add'+(on?' on':'')+'" type="button" data-i="'+i+'">'+(on?'✓ Đã thêm':'+ Báo giá')+'</button></div></div>'}).join("");
+}
+function renderCart(){document.getElementById("count").textContent=cart.length;
+  document.getElementById("picked").textContent=cart.length?cart.map(function(i){return "• "+P[i][1]}).join("\n"):"Chưa chọn sản phẩm nào – bấm “+ Báo giá” ở bảng giá.";
+  document.getElementById("picked").style.whiteSpace="pre-line"}
+document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;cur=b.dataset.c;renderChips();renderGrid()});
+document.getElementById("grid").addEventListener("click",function(e){var b=e.target.closest(".add");if(!b)return;var i=+b.dataset.i,k=cart.indexOf(i);k>-1?cart.splice(k,1):cart.push(i);renderGrid();renderCart()});
+document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();
   var v=function(id){return document.getElementById(id).value||"—"};
-  var msg="Chào VINAYES, tôi là "+v("f-name")+" ("+v("f-phone")+").\nCần: "+v("f-need")+"\nFanpage/website: "+v("f-link")+"\nGhi chú: "+v("f-note");
-  var r=document.getElementById("result"); r.hidden=false;
-  r.textContent=msg+"\n\n→ Đã sao chép. Mở Zalo 0935.247.168 và dán tin này.";
-  if(navigator.clipboard){navigator.clipboard.writeText(msg).catch(function(){});}
+  var items=cart.length?cart.map(function(i){return "- "+P[i][1]}).join("\n"):"- (chưa chọn, nhờ tư vấn)";
+  var msg="Chào Kim Mã, tôi là "+v("f-name")+" ("+v("f-phone")+").\nCần báo giá sỉ:\n"+items+"\nSố lượng/khu vực: "+v("f-qty")+"\nGhi chú: "+v("f-note");
+  var r=document.getElementById("result");r.hidden=false;r.textContent=msg+"\n\n→ Đã sao chép. Mở Zalo 0935.242.489 và dán tin này.";
+  if(navigator.clipboard){navigator.clipboard.writeText(msg).catch(function(){})}
 });
+renderChips();renderGrid();renderCart();
 </script>
 </body>
 </html>
